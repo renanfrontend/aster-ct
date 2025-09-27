@@ -23,6 +23,14 @@
             darkMode: 'class', // Habilita o modo escuro baseado em classe
         }
     </script>
+    <script>
+        // Lógica para evitar FOUC (Flash of Unstyled Content) no tema escuro
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 
     <!-- Embla Carousel -->
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
@@ -33,7 +41,7 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
-<body class="bg-amber-50 antialiased">
+<body class="bg-amber-50 dark:bg-gray-900 antialiased">
 
     <!-- PRELOADER -->
     <div id="preloader" class="preloader">
@@ -150,6 +158,22 @@
                     <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-300">
                         Acreditamos que cada jornada de recuperação é única. Por isso, nossa abordagem é centrada no indivíduo, combinando profissionalismo, empatia e um ambiente seguro para promover a verdadeira transformação.
                     </p>
+                </div>
+
+                <!-- Stats Counter -->
+                <div id="stats-counter" class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400" data-target="10">0</span><span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400">+</span>
+                        <p class="mt-2 text-lg font-medium text-gray-600 dark:text-gray-300">Anos de Experiência</p>
+                    </div>
+                    <div>
+                        <span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400" data-target="500">0</span><span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400">+</span>
+                        <p class="mt-2 text-lg font-medium text-gray-600 dark:text-gray-300">Vidas Transformadas</p>
+                    </div>
+                    <div>
+                        <span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400" data-target="95">0</span><span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400">%</span>
+                        <p class="mt-2 text-lg font-medium text-gray-600 dark:text-gray-300">Satisfação Familiar</p>
+                    </div>
                 </div>
 
                 <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center fade-in-section">
@@ -368,40 +392,556 @@
                 <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in-section">
                     <!-- Artigo 1 -->
                     <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-shadow hover:shadow-2xl">
-                        <a href="#" class="block">
+                        <a href="artigo-apoio-familiar.html" class="block">
                             <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=800&auto=format&fit=crop" alt="Pessoa escrevendo em um caderno" loading="lazy" decoding="async" width="800" height="533">
                         </a>
                         <div class="p-6 flex flex-col flex-grow">
                             <p class="text-sm font-semibold text-amber-600 dark:text-amber-400 uppercase">Saúde Mental</p>
-                            <a href="#" class="block mt-2"><h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">A Importância do Apoio Familiar na Recuperação</h3></a>
+                            <a href="artigo-apoio-familiar.html" class="block mt-2"><h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">A Importância do Apoio Familiar na Recuperação</h3></a>
                             <p class="mt-3 text-gray-600 dark:text-gray-300 flex-grow">O suporte da família é um dos pilares mais importantes no tratamento da dependência química. Entenda como o envolvimento familiar pode fazer a diferença.</p>
-                            <div class="mt-6"><a href="#" class="font-semibold text-amber-600 dark:text-amber-400 hover:underline">Ler mais &rarr;</a></div>
+                            <div class="mt-6"><a href="artigo-apoio-familiar.html" class="font-semibold text-amber-600 dark:text-amber-400 hover:underline">Ler mais &rarr;</a></div>
                         </div>
                     </div>
 
                     <!-- Artigo 2 -->
                     <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-shadow hover:shadow-2xl">
-                        <a href="#" class="block">
+                        <a href="artigo-sinais-alerta.html" class="block">
                             <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1579487785973-74d2ca7abdd5?q=80&w=800&auto=format&fit=crop" alt="Pessoa meditando ao ar livre" loading="lazy" decoding="async" width="800" height="533">
                         </a>
                         <div class="p-6 flex flex-col flex-grow">
                             <p class="text-sm font-semibold text-amber-600 dark:text-amber-400 uppercase">Bem-Estar</p>
-                            <a href="#" class="block mt-2"><h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">5 Sinais de Alerta da Dependência Química</h3></a>
+                            <a href="artigo-sinais-alerta.html" class="block mt-2"><h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">5 Sinais de Alerta da Dependência Química</h3></a>
                             <p class="mt-3 text-gray-600 dark:text-gray-300 flex-grow">Reconhecer os sinais precoces da dependência é o primeiro passo para buscar ajuda. Saiba identificar as mudanças de comportamento e os sintomas físicos.</p>
-                            <div class="mt-6"><a href="#" class="font-semibold text-amber-600 dark:text-amber-400 hover:underline">Ler mais &rarr;</a></div>
+                            <div class="mt-6"><a href="artigo-sinais-alerta.html" class="font-semibold text-amber-600 dark:text-amber-400 hover:underline">Ler mais &rarr;</a></div>
                         </div>
                     </div>
 
                     <!-- Artigo 3 -->
                     <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-shadow hover:shadow-2xl">
-                        <a href="#" class="block">
+                        <a href="artigo-rotina-saudavel.html" class="block">
                             <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?q=80&w=800&auto=format&fit=crop" alt="Mãos segurando uma xícara de chá" loading="lazy" decoding="async" width="800" height="533">
                         </a>
                         <div class="p-6 flex flex-col flex-grow">
                             <p class="text-sm font-semibold text-amber-600 dark:text-amber-400 uppercase">Recuperação</p>
-                            <a href="#" class="block mt-2"><h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">Construindo uma Rotina Saudável Pós-Tratamento</h3></a>
+                            <a href="artigo-rotina-saudavel.html" class="block mt-2"><h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">Construindo uma Rotina Saudável Pós-Tratamento</h3></a>
                             <p class="mt-3 text-gray-600 dark:text-gray-300 flex-grow">A vida após a internação exige novos hábitos. Descubra dicas para criar uma rotina que fortaleça sua sobriedade e promova o bem-estar contínuo.</p>
-                            <div class="mt-6"><a href="#" class="font-semibold text-amber-600 dark:text-amber-400 hover:underline">Ler mais &rarr;</a></div>
+                            <div class="mt-6"><a href="artigo-rotina-saudavel.html" class="font-semibold text-amber-600 dark:text-amber-400 hover:underline">Ler mais &rarr;</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-gray-800 dark:bg-black text-white mt-auto">
+        <div class="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- Coluna 1: Logo e Nome -->
+                <div class="flex flex-col items-center md:items-start">
+                    <a href="#inicio" class="flex items-center space-x-2">
+                        <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M100 195C152.467 195 195 152.467 195 100C195 47.5329 152.467 5 100 5C47.5329 5 5 47.5329 5 100C5 152.467 47.5329 195 100 195Z" fill="url(#paint0_linear_1_2)"/>
+                            <path d="M123.571 106.666L102.321 85.416C101.446 84.541 100.221 84.041 98.9464 84.041C97.6714 84.041 96.4464 84.541 95.5714 85.416L65.5714 115.416C64.6964 116.291 64.6964 117.707 65.5714 118.582C66.4464 119.457 67.8625 119.457 68.7375 118.582L98.9464 88.332L120.446 109.832C123.238 107.916 125.738 105.582 127.863 102.916C126.738 102.041 125.15 102.041 124.15 102.916L123.571 103.5V106.666Z" fill="#FFFBEB"/>
+                            <path d="M136.5 72C136.5 76.125 133.125 79.5 129 79.5C124.875 79.5 121.5 76.125 121.5 72C121.5 67.875 124.875 64.5 129 64.5C133.125 64.5 136.5 67.875 136.5 72Z" fill="white"/>
+                            <path d="M129 82.5C121.913 82.5 116.25 88.1625 116.25 95.25C116.25 97.5375 116.813 99.675 117.75 101.55L98.925 82.725L72.225 109.425L76.425 113.625L98.925 91.125L122.25 114.45C124.238 113.887 126.075 113.025 127.725 111.975L108.9 93.15L129 73.05L138.375 82.425C136.125 82.5 132.675 82.5 129 82.5Z" fill="#FFFBEB"/>
+                            <defs>
+                                <linearGradient id="paint0_linear_1_2" x1="100" y1="5" x2="100" y2="195" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FDE68A"/>
+                                <stop offset="1" stop-color="#F59E0B"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="text-2xl font-bold text-white">Aster</span>
+                    </a>
+                    <p class="mt-4 text-gray-400 text-sm">Oferecemos um caminho de esperança e cuidado humanizado para a superação da dependência química.</p>
+                </div>
+
+                <!-- Coluna 2: Links de Navegação -->
+                <div class="mt-8 md:mt-0">
+                    <h3 class="text-lg font-semibold text-white mb-4">Navegação</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Início</a></li>
+                        <li><a href="#sobre" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Sobre Nós</a></li>
+                        <li><a href="#estrutura" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Estrutura</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Dúvidas Frequentes</a></li>
+                        <li><a href="#contato" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Contato e Redes Sociais -->
+                <div class="mt-8 md:mt-0">
+                    <h3 class="text-lg font-semibold text-white mb-4">Fale Conosco</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center justify-center md:justify-start">                            
+                            <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-5 w-5 mr-2 filter grayscale brightness-150"> <!-- Ícone em escala de cinza para combinar com o rodapé -->
+                            <a href="https://wa.me/5519996464196?text=Olá!%20Visitei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20conversar%20com%20um%20especialista%20sobre%20as%20opções%20de%20tratamento.%20Preciso%20de%20ajuda." target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-400 transition-colors duration-300">(19) 99646-4196</a>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start">
+                            <svg class="h-5 w-5 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <a href="mailto:bittiago478@gmail.com" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">bittiago478@gmail.com (Tiago Martins)</a>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start">
+                            <svg class="h-5 w-5 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" clip-rule="evenodd" /></svg>
+                            <span>Ribeirão Pires - SP e raio de 50km</span>
+                        </li>
+                    </ul>
+                    <div class="flex justify-center md:justify-start mt-6 space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Facebook">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.77-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Instagram">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.42.42.679.819.896 1.381.166.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.013 3.584-.07 4.85c-.053 1.17-.247 1.805-.413 2.227-.217.562-.476.96-.896 1.381-.42.42-.819.679-1.381.896-.422.166-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.013-4.85-.07c-1.17-.053-1.805-.247-2.227-.413-.562-.217-.96-.476-1.381-.896-.42-.42-.679-.819-.896-1.381-.166-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.013-3.584.07-4.85c.053-1.17.247-1.805.413-2.227.217-.562.476-.96.896-1.381.42-.42.819-.679 1.381-.896.422-.166 1.057-.36 2.227-.413C8.416 2.175 8.796 2.163 12 2.163zm0 1.802C9.042 3.965 8.71 3.977 7.548 4.032c-1.14.054-1.68.23-2.023.362-.44.17-.748.396-1.05.7-.303.303-.53.61-.7.1.05-.131.443-.354.747-.362 1.14-.054 1.473-.066 4.43-.066s3.29.012 4.43.066c.303.132.578.355.747.747.17.303.396.61.7 1.05.131.344.308.883.362 2.023.054 1.168.066 1.499.066 4.43s-.012 3.262-.066 4.43c-.054 1.14-.23 1.68-.362 2.023-.17.44-.396.748-.7 1.05-.303.303-.61.53-1.05.7-.344.131-.883.308-2.023.362-1.168.054-1.499.066-4.43.066s-3.262-.012-4.43-.066c-1.14-.054-1.68-.23-2.023-.362-.44-.17-.748.396-1.05-.7-.303-.303-.53-.61-.7-1.05-.131-.344-.308-.883-.362-2.023-.054-1.168-.066-1.499-.066-4.43s.012-3.262.066-4.43c.054-1.14.23-1.68.362-2.023.17-.44.396-.748.7-1.05.303-.303.61-.53 1.05-.7.344-.131.883-.308 2.023-.362C8.71 3.977 9.042 3.965 12 3.965zm0 3.63c-3.443 0-6.237 2.794-6.237 6.237s2.794 6.237 6.237 6.237 6.237-2.794 6.237-6.237-2.794-6.237-6.237-6.237zm0 10.272c-2.226 0-4.035-1.81-4.035-4.035s1.81-4.035 4.035-4.035 4.035 1.81 4.035 4.035-1.81 4.035-4.035 4.035zm6.406-11.845c-.796 0-1.44.645-1.44 1.44s.645 1.44 1.44 1.44 1.44-.645 1.44-1.44-.645-1.44-1.44-1.44z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 border-t border-gray-700 dark:border-gray-600 pt-8 text-center">
+                <div class="flex justify-center md:order-1">
+                    <a href="#inicio" class="flex items-center space-x-2">
+                        <!-- ... (código do logo SVG) ... -->
+                        <span class="text-2xl font-bold text-white">Aster</span>
+                    </a>
+                </div>
+                <div class="mt-8 md:mt-0 text-center text-gray-400">
+                    <p>&copy; 2024 Aster Centro Terapêutico. Todos os direitos reservados.</p>
+                    <a href="politica-de-privacidade.html" class="text-sm text-gray-500 hover:text-amber-400 transition-colors">Política de Privacidade</a>
+                    <p class="text-sm">Recomeçar é possível. Nós podemos ajudar.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+    <a href="https://wa.me/5519996464196?text=Olá!%20Visitei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20conversar%20com%20um%20especialista%20sobre%20as%20opções%20de%20tratamento.%20Preciso%20de%20ajuda." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110 z-50 flex items-center justify-center" aria-label="Fale Conosco pelo WhatsApp">
+        <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-8 w-8">
+    </a>
+
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <a href="#inicio" id="back-to-top-btn" class="back-to-top-btn hidden" aria-label="Voltar ao topo">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </a>
+
+    <!-- BANNER DE CONSENTIMENTO DE COOKIES (LGPD) -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-gray-300 text-center sm:text-left">
+                Nosso site utiliza cookies para garantir a melhor experiência de navegação. Ao continuar, você concorda com nossa <a href="politica-de-privacidade.html" class="font-semibold text-amber-400 hover:underline">Política de Privacidade</a>.
+            </p>
+            <button id="accept-cookies-btn" class="px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-md transition-colors flex-shrink-0 w-full sm:w-auto">
+                Aceitar e Fechar
+            </button>
+        </div>
+    </div>
+
+    </div> <!-- Fim do #site-content -->
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
+            darkMode: 'class', // Habilita o modo escuro baseado em classe
+        }
+    </script>
+
+    <!-- Embla Carousel -->
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+    <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
+
+
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body class="bg-amber-50 antialiased">
+
+    <!-- PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="site-content" class="opacity-0 transition-opacity duration-500"> <!-- Conteúdo do site inicialmente invisível -->
+        
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
+    <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center space-x-2">
+                    <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M100 195C152.467 195 195 152.467 195 100C195 47.5329 152.467 5 100 5C47.5329 5 5 47.5329 5 100C5 152.467 47.5329 195 100 195Z" fill="url(#paint0_linear_1_2)"/>
+                        <path d="M123.571 106.666L102.321 85.416C101.446 84.541 100.221 84.041 98.9464 84.041C97.6714 84.041 96.4464 84.541 95.5714 85.416L65.5714 115.416C64.6964 116.291 64.6964 117.707 65.5714 118.582C66.4464 119.457 67.8625 119.457 68.7375 118.582L98.9464 88.332L120.446 109.832C123.238 107.916 125.738 105.582 127.863 102.916C126.738 102.041 125.15 102.041 124.15 102.916L123.571 103.5V106.666Z" fill="#FFFBEB"/>
+                        <path d="M136.5 72C136.5 76.125 133.125 79.5 129 79.5C124.875 79.5 121.5 76.125 121.5 72C121.5 67.875 124.875 64.5 129 64.5C133.125 64.5 136.5 67.875 136.5 72Z" fill="white"/>
+                        <path d="M129 82.5C121.913 82.5 116.25 88.1625 116.25 95.25C116.25 97.5375 116.813 99.675 117.75 101.55L98.925 82.725L72.225 109.425L76.425 113.625L98.925 91.125L122.25 114.45C124.238 113.887 126.075 113.025 127.725 111.975L108.9 93.15L129 73.05L138.375 82.425C136.125 82.5 132.675 82.5 129 82.5Z" fill="#FFFBEB"/>
+                        <defs>
+                            <linearGradient id="paint0_linear_1_2" x1="100" y1="5" x2="100" y2="195" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FDE68A"/>
+                            <stop offset="1" stop-color="#F59E0B"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="text-2xl font-bold text-gray-800 dark:text-gray-100">Aster</span>
+                </a>
+
+                <!-- Navegação Desktop (oculta em telas pequenas) -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <nav class="flex items-center space-x-8" id="nav-desktop">
+                        <a href="#inicio" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 font-medium">Início</a>
+                        <a href="#sobre" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 font-medium">Sobre Nós</a>
+                        <a href="#estrutura" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 font-medium">Estrutura</a>
+                        <a href="#faq" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 font-medium">Dúvidas</a>
+                        <a href="#contato" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 font-medium">Contato</a>
+                    </nav>
+                    <a href="https://wa.me/5519996464196?text=Olá!%20Visitei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20conversar%20com%20um%20especialista%20sobre%20as%20opções%20de%20tratamento.%20Preciso%20de%20ajuda." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-500 hover:bg-green-600 transition-all duration-300 transform hover:scale-105">
+                        <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-5 w-5 mr-2">
+                        Fale Conosco
+                    </a>
+                    <!-- Botão de Tema -->
+                    <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 7.072l.707-.707a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Botão Menu Mobile -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-700">
+                        <svg id="menu-open-icon" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+                        <svg id="menu-close-icon" class="h-7 w-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg absolute top-20 left-0 w-full z-40">
+            <nav class="flex flex-col items-center space-y-4 py-6">
+                <a href="#inicio" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 text-lg font-medium">Início</a>
+                <a href="#sobre" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 text-lg font-medium">Sobre Nós</a>
+                <a href="#estrutura" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 text-lg font-medium">Estrutura</a>
+                <a href="#faq" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 text-lg font-medium">Dúvidas</a>
+                <a href="#contato" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 text-lg font-medium">Contato</a>
+                <a href="https://wa.me/5519996464196?text=Olá!%20Visitei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20conversar%20com%20um%20especialista%20sobre%20as%20opções%20de%20tratamento.%20Preciso%20de%20ajuda." target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-500 hover:bg-green-600 transition-all duration-300 transform hover:scale-105">
+                     <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-5 w-5 mr-2">
+                    Fale Conosco
+                </a>
+                <div class="mt-4">
+                    <button id="theme-toggle-mobile" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
+                        <svg id="theme-toggle-dark-icon-mobile" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon-mobile" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 7.072l.707-.707a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO HERO (Excluída da animação de fade-in por ser a primeira a aparecer) -->
+        <section id="inicio" class="relative bg-amber-50 dark:bg-gray-900 pt-16 pb-24 sm:pt-24 sm:pb-32 overflow-hidden">
+            <div class="absolute inset-0">
+                <img id="hero-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop" alt="Paisagem serena representando um novo começo" class="w-full h-full object-cover" loading="eager" decoding="async" width="2070" height="1383">
+                <div class="absolute inset-0 bg-gradient-to-t from-amber-50 dark:from-gray-900 via-amber-50/80 dark:via-gray-900/80 to-transparent"></div>
+            </div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight">
+                    Uma nova jornada para a <span class="text-amber-600 dark:text-amber-400">recuperação</span> começa aqui.
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-gray-600 dark:text-gray-300">
+                    No Centro Terapêutico Aster, oferecemos um caminho de esperança e cuidado humanizado para a superação da dependência química. Acolhimento, respeito e transformação.
+                </p>
+                <div class="mt-10">
+                    <a href="https://wa.me/5519996464196?text=Olá!%20Visitei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20conversar%20com%20um%20especialista%20sobre%20as%20opções%20de%20tratamento.%20Preciso%20de%20ajuda." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-full text-white bg-green-500 hover:bg-green-600 shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                        <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-6 w-6 mr-3">
+                        Converse com um especialista 24h
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">Atendimento imediato e sigiloso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DEPOIMENTOS -->
+        <section id="sobre" class="bg-white dark:bg-gray-800 py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-amber-600 dark:text-amber-400 tracking-wider uppercase">Nossa Filosofia</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight">
+                        Cuidado que Transforma Vidas
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-300">
+                        Acreditamos que cada jornada de recuperação é única. Por isso, nossa abordagem é centrada no indivíduo, combinando profissionalismo, empatia e um ambiente seguro para promover a verdadeira transformação.
+                    </p>
+                </div>
+
+                <!-- Stats Counter -->
+                <div id="stats-counter" class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400" data-target="10">0</span><span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400">+</span>
+                        <p class="mt-2 text-lg font-medium text-gray-600 dark:text-gray-300">Anos de Experiência</p>
+                    </div>
+                    <div>
+                        <span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400" data-target="500">0</span><span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400">+</span>
+                        <p class="mt-2 text-lg font-medium text-gray-600 dark:text-gray-300">Vidas Transformadas</p>
+                    </div>
+                    <div>
+                        <span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400" data-target="95">0</span><span class="text-4xl lg:text-5xl font-extrabold text-amber-600 dark:text-amber-400">%</span>
+                        <p class="mt-2 text-lg font-medium text-gray-600 dark:text-gray-300">Satisfação Familiar</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center fade-in-section">
+                    <!-- Missão -->
+                    <div class="flex flex-col items-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-amber-100 dark:bg-gray-700 text-amber-600 dark:text-amber-400">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-gray-800 dark:text-gray-100">Nossa Missão</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-300">Oferecer um tratamento humanizado e eficaz para a dependência química, promovendo a reintegração social e a reconstrução de vidas através de um ambiente de acolhimento, respeito e profissionalismo.</p>
+                    </div>
+
+                    <!-- Visão -->
+                    <div class="flex flex-col items-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-amber-100 dark:bg-gray-700 text-amber-600 dark:text-amber-400">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-gray-800 dark:text-gray-100">Nossa Visão</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-300">Ser um centro terapêutico de referência, reconhecido pela excelência em seus métodos, pela inovação contínua e pelo impacto positivo e duradouro na vida de nossos pacientes e suas famílias.</p>
+                    </div>
+
+                    <!-- Valores -->
+                    <div class="flex flex-col items-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-amber-100 dark:bg-gray-700 text-amber-600 dark:text-amber-400">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.45-1.316C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.184L12 21z" /></svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-gray-800 dark:text-gray-100">Nossos Valores</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-300">Baseamos nosso trabalho no respeito à dignidade, empatia, ética profissional, confidencialidade, esperança na recuperação e comprometimento total com o bem-estar de cada paciente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO ESTRUTURA -->
+        <section id="estrutura" class="bg-amber-50 dark:bg-gray-900 py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-amber-600 dark:text-amber-400 tracking-wider uppercase">Nossa Estrutura</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight">
+                        Um Ambiente de Paz e Acolhimento
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-300">
+                        Oferecemos um espaço seguro, confortável e projetado para promover o bem-estar e a recuperação. Cada detalhe foi pensado para que nossos pacientes se sintam em casa.
+                    </p>
+                </div>
+
+                <!-- Carrossel -->
+                <div class="mt-16 relative embla">
+                    <div class="embla__viewport overflow-hidden" id="carousel-viewport">
+                        <div class="embla__container flex">
+                            <!-- Slides -->
+                            <div class="embla__slide flex-grow-0 flex-shrink-0 basis-full md:basis-1/2 lg:basis-1/3 min-w-0 pl-4">
+                                <div class="aspect-w-16 aspect-h-10 rounded-xl overflow-hidden shadow-lg"><img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop" alt="Sala de estar aconchegante" loading="lazy" decoding="async" width="800" height="500"></div>
+                            </div>
+                            <div class="embla__slide flex-grow-0 flex-shrink-0 basis-full md:basis-1/2 lg:basis-1/3 min-w-0 pl-4">
+                                <div class="aspect-w-16 aspect-h-10 rounded-xl overflow-hidden shadow-lg"><img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1618221195710-dd6b41fa2242?q=80&w=800&auto=format&fit=crop" alt="Quarto confortável e privativo" loading="lazy" decoding="async" width="800" height="500"></div>
+                            </div>
+                            <div class="embla__slide flex-grow-0 flex-shrink-0 basis-full md:basis-1/2 lg:basis-1/3 min-w-0 pl-4">
+                                <div class="aspect-w-16 aspect-h-10 rounded-xl overflow-hidden shadow-lg"><img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800&auto=format&fit=crop" alt="Espaço para terapia em grupo" loading="lazy" decoding="async" width="800" height="500"></div>
+                            </div>
+                            <div class="embla__slide flex-grow-0 flex-shrink-0 basis-full md:basis-1/2 lg:basis-1/3 min-w-0 pl-4">
+                                <div class="aspect-w-16 aspect-h-10 rounded-xl overflow-hidden shadow-lg"><img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=800&auto=format&fit=crop" alt="Área externa da clínica" loading="lazy" decoding="async" width="800" height="500"></div>
+                            </div>
+                            <div class="embla__slide flex-grow-0 flex-shrink-0 basis-full md:basis-1/2 lg:basis-1/3 min-w-0 pl-4">
+                                <div class="aspect-w-16 aspect-h-10 rounded-xl overflow-hidden shadow-lg"><img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop" alt="Refeitório amplo e iluminado" loading="lazy" decoding="async" width="800" height="500"></div>
+                            </div>
+                            <div class="embla__slide flex-grow-0 flex-shrink-0 basis-full md:basis-1/2 lg:basis-1/3 min-w-0 pl-4">
+                                <div class="aspect-w-16 aspect-h-10 rounded-xl overflow-hidden shadow-lg"><img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1556702571-3e11dd2b1a5a?q=80&w=800&auto=format&fit=crop" alt="Área de convivência" loading="lazy" decoding="async" width="800" height="500"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Botões de Navegação -->
+                    <button id="carousel-prev" class="embla__button embla__button--prev absolute top-1/2 left-0 -translate-y-1/2 -translate-x-4 h-10 w-10 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center justify-center">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button id="carousel-next" class="embla__button embla__button--next absolute top-1/2 right-0 -translate-y-1/2 translate-x-4 h-10 w-10 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center justify-center">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CONTATO E MAPA -->
+        <section id="contato" class="bg-white dark:bg-gray-800 py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-amber-600 dark:text-amber-400 tracking-wider uppercase">Contato</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight">
+                        Estamos Prontos para Ajudar
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-300">
+                        Entre em contato conosco a qualquer momento. Nossa equipe está disponível 24 horas por dia para oferecer suporte sigiloso e iniciar o caminho da recuperação.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in-section">
+                    <!-- Formulário de Contato -->
+                    <div class="bg-amber-50 dark:bg-gray-900 p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">Envie uma Mensagem</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-8">Prefere escrever? Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível. Para urgências, utilize nosso <a href="https://wa.me/5519996464196?text=Olá!%20Visitei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20conversar%20com%20um%20especialista%20sobre%20as%20opções%20de%20tratamento.%20Preciso%20de%20ajuda." target="_blank" rel="noopener noreferrer" class="font-semibold text-green-600 hover:underline">WhatsApp 24h</a>.</p>
+                        <form action="https://formsubmit.co/bittiago478@gmail.com" method="POST" class="space-y-6">
+                            <!-- Configurações do FormSubmit -->
+                            <input type="hidden" name="_subject" value="Nova Mensagem do Site - Centro Terapêutico Aster">
+                            <input type="hidden" name="_captcha" value="false"> <!-- Desativa o reCAPTCHA para evitar erros em ambiente local -->
+                            <input type="hidden" name="_next" value="obrigado.html"> <!-- Página de agradecimento -->
+
+                            <div>
+                                <div>
+                                    <label for="name" class="sr-only">Nome</label>
+                                    <input type="text" name="name" id="name" autocomplete="name" required class="block w-full px-4 py-3 rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500 dark:placeholder-gray-400" placeholder="Seu nome completo">
+                                </div>
+                                <div>
+                                    <label for="email" class="sr-only">E-mail</label>
+                                    <input id="email" name="email" type="email" autocomplete="email" required class="block w-full px-4 py-3 rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500 dark:placeholder-gray-400" placeholder="Seu melhor e-mail">
+                                </div>
+                                <div>
+                                    <label for="subject" class="sr-only">Assunto</label>
+                                    <select id="subject" name="subject" required class="block w-full px-4 py-3 rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm focus:ring-amber-500 focus:border-amber-500 text-gray-500 dark:text-gray-400">
+                                        <option value="" disabled selected>Selecione o assunto</option>
+                                        <option value="Informações sobre internação">Informações sobre internação</option>
+                                        <option value="Dúvidas sobre o tratamento">Dúvidas sobre o tratamento</option>
+                                        <option value="Agendar uma visita">Agendar uma visita</option>
+                                        <option value="Outros assuntos">Outros assuntos</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="phone" class="sr-only">Telefone</label>
+                                    <input type="tel" name="phone" id="phone" autocomplete="tel" class="block w-full px-4 py-3 rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500 dark:placeholder-gray-400" placeholder="Seu telefone (Opcional)">
+                                </div>
+                                <div>
+                                    <label for="message" class="sr-only">Mensagem</label>
+                                    <textarea id="message" name="message" rows="4" required class="block w-full px-4 py-3 rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500 dark:placeholder-gray-400" placeholder="Como podemos ajudar?"></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 dark:bg-amber-500 dark:hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors">
+                                        Enviar Mensagem
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Mapa -->
+                    <div class="map-container aspect-w-16 aspect-h-10 rounded-xl overflow-hidden shadow-lg">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58458.33292729934!2d-46.44919085136718!3d-23.702359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce6db64b3b2231%3A0x3e2c348d5222543e!2sRibeir%C3%A3o%20Pires%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1716320012345!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO FAQ (DÚVIDAS FREQUENTES) -->
+        <section id="faq" class="bg-amber-50 dark:bg-gray-900 py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-amber-600 dark:text-amber-400 tracking-wider uppercase">Dúvidas Frequentes</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight">
+                        Esclarecendo suas Perguntas
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-300">
+                        Reunimos aqui as respostas para as dúvidas mais comuns sobre nosso tratamento, internação e metodologia.
+                    </p>
+                </div>
+
+                <div class="mt-16 max-w-3xl mx-auto space-y-4 fade-in-section">
+                    <!-- Item 1 -->
+                    <div class="accordion-item bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Como funciona o processo de internação?</h3>
+                            <svg class="h-6 w-6 text-gray-500 dark:text-gray-400 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                        <div class="accordion-content"><p class="p-5 pt-0 text-gray-600 dark:text-gray-300">O processo começa com uma avaliação inicial com nossa equipe. A partir daí, definimos o plano terapêutico mais adequado. A internação pode ser voluntária, involuntária ou compulsória, sempre respeitando a legislação e a dignidade do paciente.</p></div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="accordion-item bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Qual a duração do tratamento?</h3>
+                            <svg class="h-6 w-6 text-gray-500 dark:text-gray-400 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                        <div class="accordion-content"><p class="p-5 pt-0 text-gray-600 dark:text-gray-300">A duração varia para cada paciente, pois o tratamento é individualizado. Geralmente, o período de internação pode variar de 3 a 6 meses, dependendo da evolução e das necessidades específicas de cada um.</p></div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="accordion-item bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100">A família pode participar do tratamento?</h3>
+                            <svg class="h-6 w-6 text-gray-500 dark:text-gray-400 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                        <div class="accordion-content"><p class="p-5 pt-0 text-gray-600 dark:text-gray-300">Sim, a participação da família é fundamental. Oferecemos terapia familiar e grupos de apoio, pois entendemos que a dependência química afeta todo o sistema familiar e o suporte dos entes queridos é crucial para a recuperação.</p></div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="accordion-item bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                        <div class="accordion-header flex justify-between items-center p-5 cursor-pointer">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Quais são as abordagens terapêuticas utilizadas?</h3>
+                            <svg class="h-6 w-6 text-gray-500 dark:text-gray-400 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                        <div class="accordion-content"><p class="p-5 pt-0 text-gray-600 dark:text-gray-300">Utilizamos uma abordagem multidisciplinar que inclui Terapia Cognitivo-Comportamental (TCC), Programa de 12 Passos, terapia individual e em grupo, aconselhamento espiritual, atividades físicas e laborterapia, visando a recuperação integral do indivíduo.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO BLOG -->
+        <section id="blog" class="bg-amber-50 dark:bg-gray-900 py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-amber-600 dark:text-amber-400 tracking-wider uppercase">Nosso Blog</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight">
+                        Conhecimento e Apoio
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-300">
+                        Artigos e reflexões para ajudar você e sua família a entender melhor a jornada da recuperação.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in-section">
+                    <!-- Artigo 1 -->
+                    <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-shadow hover:shadow-2xl">
+                        <a href="artigo-apoio-familiar.html" class="block">
+                            <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=800&auto=format&fit=crop" alt="Pessoa escrevendo em um caderno" loading="lazy" decoding="async" width="800" height="533">
+                        </a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <p class="text-sm font-semibold text-amber-600 dark:text-amber-400 uppercase">Saúde Mental</p>
+                            <a href="artigo-apoio-familiar.html" class="block mt-2"><h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">A Importância do Apoio Familiar na Recuperação</h3></a>
+                            <p class="mt-3 text-gray-600 dark:text-gray-300 flex-grow">O suporte da família é um dos pilares mais importantes no tratamento da dependência química. Entenda como o envolvimento familiar pode fazer a diferença.</p>
+                            <div class="mt-6"><a href="artigo-apoio-familiar.html" class="font-semibold text-amber-600 dark:text-amber-400 hover:underline">Ler mais &rarr;</a></div>
+                        </div>
+                    </div>
+
+                    <!-- Artigo 2 -->
+                    <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-shadow hover:shadow-2xl">
+                        <a href="artigo-sinais-alerta.html" class="block">
+                            <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1579487785973-74d2ca7abdd5?q=80&w=800&auto=format&fit=crop" alt="Pessoa meditando ao ar livre" loading="lazy" decoding="async" width="800" height="533">
+                        </a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <p class="text-sm font-semibold text-amber-600 dark:text-amber-400 uppercase">Bem-Estar</p>
+                            <a href="artigo-sinais-alerta.html" class="block mt-2"><h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">5 Sinais de Alerta da Dependência Química</h3></a>
+                            <p class="mt-3 text-gray-600 dark:text-gray-300 flex-grow">Reconhecer os sinais precoces da dependência é o primeiro passo para buscar ajuda. Saiba identificar as mudanças de comportamento e os sintomas físicos.</p>
+                            <div class="mt-6"><a href="artigo-sinais-alerta.html" class="font-semibold text-amber-600 dark:text-amber-400 hover:underline">Ler mais &rarr;</a></div>
+                        </div>
+                    </div>
+
+                    <!-- Artigo 3 -->
+                    <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-shadow hover:shadow-2xl">
+                        <a href="artigo-rotina-saudavel.html" class="block">
+                            <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?q=80&w=800&auto=format&fit=crop" alt="Mãos segurando uma xícara de chá" loading="lazy" decoding="async" width="800" height="533">
+                        </a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <p class="text-sm font-semibold text-amber-600 dark:text-amber-400 uppercase">Recuperação</p>
+                            <a href="artigo-rotina-saudavel.html" class="block mt-2"><h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">Construindo uma Rotina Saudável Pós-Tratamento</h3></a>
+                            <p class="mt-3 text-gray-600 dark:text-gray-300 flex-grow">A vida após a internação exige novos hábitos. Descubra dicas para criar uma rotina que fortaleça sua sobriedade e promova o bem-estar contínuo.</p>
+                            <div class="mt-6"><a href="artigo-rotina-saudavel.html" class="font-semibold text-amber-600 dark:text-amber-400 hover:underline">Ler mais &rarr;</a></div>
                         </div>
                     </div>
                 </div>

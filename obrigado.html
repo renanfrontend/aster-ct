@@ -18,33 +18,81 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Habilita o modo escuro baseado em classe
+        }
+    </script>
+    <script>
+        // Lógica para evitar FOUC (Flash of Unstyled Content) no tema escuro
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 
     <!-- Estilos Personalizados -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-amber-50 antialiased">
+<body class="bg-amber-50 dark:bg-gray-900 antialiased">
     <div class="flex items-center justify-center min-h-screen">
-        <div class="text-center bg-white p-8 sm:p-12 rounded-xl shadow-2xl max-w-lg mx-4">
+        <div class="text-center bg-white dark:bg-gray-800 p-8 sm:p-12 rounded-xl shadow-2xl max-w-lg mx-4">
             <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100">
                 <svg class="h-10 w-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
             </div>
-            <h1 class="mt-6 text-3xl font-extrabold text-gray-800 tracking-tight">
+            <h1 class="mt-6 text-3xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight">
                 Mensagem Enviada!
             </h1>
-            <p class="mt-4 text-lg text-gray-600">
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
                 Obrigado por entrar em contato. Recebemos sua mensagem e nossa equipe de especialistas responderá o mais breve possível.
             </p>
-            <p class="mt-2 text-gray-600">
+            <p class="mt-2 text-gray-600 dark:text-gray-300">
                 Para casos urgentes, não hesite em nos contatar pelo <a href="https://wa.me/5519996464196?text=Olá!%20Acabei%20de%20enviar%20um%20formulário%20e%20gostaria%20de%20falar%20com%20um%20especialista." target="_blank" rel="noopener noreferrer" class="font-semibold text-green-600 hover:underline">WhatsApp 24h</a>.
             </p>
             <div class="mt-8">
-                <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors">
+                <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 dark:bg-amber-500 dark:hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors">
                     Voltar para a Página Inicial
                 </a>
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
+</body>
+</html>
+            darkMode: 'class', // Habilita o modo escuro baseado em classe
+        }
+    </script>
+
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-amber-50 dark:bg-gray-900 antialiased">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="text-center bg-white dark:bg-gray-800 p-8 sm:p-12 rounded-xl shadow-2xl max-w-lg mx-4">
+            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100">
+                <svg class="h-10 w-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h1 class="mt-6 text-3xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight">
+                Mensagem Enviada!
+            </h1>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                Obrigado por entrar em contato. Recebemos sua mensagem e nossa equipe de especialistas responderá o mais breve possível.
+            </p>
+            <p class="mt-2 text-gray-600 dark:text-gray-300">
+                Para casos urgentes, não hesite em nos contatar pelo <a href="https://wa.me/5519996464196?text=Olá!%20Acabei%20de%20enviar%20um%20formulário%20e%20gostaria%20de%20falar%20com%20um%20especialista." target="_blank" rel="noopener noreferrer" class="font-semibold text-green-600 hover:underline">WhatsApp 24h</a>.
+            </p>
+            <div class="mt-8">
+                <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 dark:bg-amber-500 dark:hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors">
+                    Voltar para a Página Inicial
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

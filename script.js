@@ -18,95 +18,81 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             // Theme Toggle
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
-            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-            const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
-            const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
-
-            const applyTheme = (theme) => {
-                if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                    themeToggleLightIcon.classList.remove('hidden');
-                    themeToggleDarkIcon.classList.add('hidden');
-                    themeToggleLightIconMobile.classList.remove('hidden');
-                    themeToggleDarkIconMobile.classList.add('hidden');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    themeToggleDarkIcon.classList.remove('hidden');
-                    themeToggleLightIcon.classList.add('hidden');
-                    themeToggleDarkIconMobile.classList.remove('hidden');
-                    themeToggleLightIconMobile.classList.add('hidden');
-                }
+            const themeToggleButtons = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+            
+            const updateThemeIcons = (isDark) => {
+                document.querySelectorAll('#theme-toggle-dark-icon, #theme-toggle-dark-icon-mobile').forEach(el => el.classList.toggle('hidden', !isDark));
+                document.querySelectorAll('#theme-toggle-light-icon, #theme-toggle-light-icon-mobile').forEach(el => el.classList.toggle('hidden', isDark));
             };
 
-            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                applyTheme('dark');
-            } else {
-                applyTheme('light');
-            }
+            // Sincroniza os ícones com o tema atual no carregamento da página
+            updateThemeIcons(document.documentElement.classList.contains('dark'));
 
-            const toggleTheme = () => {
-                const currentTheme = localStorage.getItem('color-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-                
-                localStorage.setItem('color-theme', newTheme);
-                applyTheme(newTheme);
-            };
-
-            themeToggleBtn.addEventListener('click', toggleTheme);
-            themeToggleMobileBtn.addEventListener('click', toggleTheme);
+            themeToggleButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // alterna a classe no HTML
+                    const isDark = document.documentElement.classList.toggle('dark');
+                    
+                    // salva a preferência
+                    localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+                    
+                    // atualiza os ícones
+                    updateThemeIcons(isDark);
+                });
+            });
 
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const menuOpenIcon = document.getElementById('menu-open-icon');
             const menuCloseIcon = document.getElementById('menu-close-icon');
 
-            // Toggle menu
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                menuOpenIcon.classList.toggle('hidden');
-                menuCloseIcon.classList.toggle('hidden');
-            });
-
-            // Fechar menu ao clicar em um link
-            const navLinks = mobileMenu.querySelectorAll('a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    menuOpenIcon.classList.remove('hidden');
-                    menuCloseIcon.classList.add('hidden');
+            if (menuBtn) {
+                // Toggle menu
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    menuOpenIcon.classList.toggle('hidden');
+                    menuCloseIcon.classList.toggle('hidden');
                 });
-            });
+
+                // Fechar menu ao clicar em um link
+                const navLinks = mobileMenu.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuOpenIcon.classList.remove('hidden');
+                        menuCloseIcon.classList.add('hidden');
+                    });
+                });
+            }
             
              // FAQ Accordion
             const accordionItems = document.querySelectorAll('.accordion-item');
-            accordionItems.forEach(item => {
-                const header = item.querySelector('.accordion-header');
-                const content = item.querySelector('.accordion-content');
-                const icon = item.querySelector('svg');
+            if (accordionItems.length > 0) {
+                accordionItems.forEach(item => {
+                    const header = item.querySelector('.accordion-header');
+                    const content = item.querySelector('.accordion-content');
+                    const icon = item.querySelector('svg');
 
-                header.addEventListener('click', () => {
-                    // Fecha todos os outros
-                    accordionItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.querySelector('.accordion-content').style.maxHeight = null;
-                            otherItem.querySelector('svg').classList.remove('rotate-180');
+                    header.addEventListener('click', () => {
+                        // Fecha todos os outros
+                        accordionItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                                otherItem.querySelector('svg').classList.remove('rotate-180');
+                            }
+                        });
+
+                        // Abre ou fecha o item clicado
+                        if (content.style.maxHeight) {
+                            content.style.maxHeight = null;
+                            icon.classList.remove('rotate-180');
+                        } else {
+                            content.style.maxHeight = content.scrollHeight + "px";
+                            icon.classList.add('rotate-180');
                         }
                     });
-
-                    // Abre ou fecha o item clicado
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                        icon.classList.remove('rotate-180');
-                    } else {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                        icon.classList.add('rotate-180');
-                    }
                 });
-            });
+            }
 
             // Embla Carousel
             const emblaNode = document.getElementById('carousel-viewport');
@@ -146,34 +132,36 @@
 
             // Fade-in animation on scroll
             const fadeInSections = document.querySelectorAll('.fade-in-section');
+            if (fadeInSections.length > 0) {
+                const observerOptions = {
+                    root: null, // Observa a viewport
+                    rootMargin: '0px',
+                    threshold: 0.2 // Dispara quando 20% da seção está visível
+                };
 
-            const observerOptions = {
-                root: null, // Observa a viewport
-                rootMargin: '0px',
-                threshold: 0.2 // Dispara quando 20% da seção está visível
-            };
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target); // Para de observar após a animação
+                        }
+                    });
+                }, observerOptions);
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Para de observar após a animação
-                    }
-                });
-            }, observerOptions);
-
-            fadeInSections.forEach(section => observer.observe(section));
+                fadeInSections.forEach(section => observer.observe(section));
+            }
 
             // Back to Top Button
             const backToTopBtn = document.getElementById('back-to-top-btn');
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) { // Mostra o botão após rolar 300px
-                    backToTopBtn.classList.add('is-visible');
-                } else {
-                    backToTopBtn.classList.remove('is-visible');
-                }
-            });
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) { // Mostra o botão após rolar 300px
+                        backToTopBtn.classList.add('is-visible');
+                    } else {
+                        backToTopBtn.classList.remove('is-visible');
+                    }
+                });
+            }
 
             // Parallax Effect for Hero Image
             const heroImage = document.getElementById('hero-image');
@@ -200,5 +188,54 @@
                     localStorage.setItem('cookie_consent', 'true');
                     cookieBanner.classList.remove('is-visible');
                 });
+            }
+
+            // Social Share Buttons
+            const shareWhatsappBtn = document.getElementById('share-whatsapp');
+            const shareFacebookBtn = document.getElementById('share-facebook');
+
+            if (shareWhatsappBtn && shareFacebookBtn) {
+                const pageUrl = encodeURIComponent(window.location.href);
+                const pageTitle = encodeURIComponent(document.title);
+
+                // WhatsApp Share Link
+                shareWhatsappBtn.href = `https://api.whatsapp.com/send?text=${pageTitle}%20-%20${pageUrl}`;
+
+                // Facebook Share Link
+                shareFacebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+            }
+
+            // Stats Counter Animation
+            const statsCounter = document.getElementById('stats-counter');
+            if (statsCounter) {
+                const counters = statsCounter.querySelectorAll('span[data-target]');
+                
+                const animateCounter = (counter) => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000; // 2 segundos
+                    const stepTime = Math.abs(Math.floor(duration / target));
+                    let current = 0;
+
+                    const timer = setInterval(() => {
+                        current += 1;
+                        counter.innerText = current;
+                        if (current === target) {
+                            clearInterval(timer);
+                        }
+                    }, stepTime);
+                };
+
+                const counterObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            counters.forEach(animateCounter);
+                            observer.unobserve(entry.target); // Anima apenas uma vez
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                if (statsCounter) {
+                    counterObserver.observe(statsCounter);
+                }
             }
         });

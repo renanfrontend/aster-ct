@@ -18,13 +18,25 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script>
+        // Lógica para evitar FOUC (Flash of Unstyled Content) no tema escuro
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 
     <!-- Estilos Personalizados -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-amber-50 antialiased">
+<body class="bg-amber-50 dark:bg-gray-900 antialiased">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-        <div class="bg-white p-8 sm:p-12 rounded-xl shadow-lg max-w-4xl mx-auto prose lg:prose-lg">
+        <div class="bg-white dark:bg-gray-800 p-8 sm:p-12 rounded-xl shadow-lg max-w-4xl mx-auto prose lg:prose-lg dark:prose-invert">
+            
             <h1>Política de Privacidade</h1>
             <p><strong>Última atualização:</strong> Maio de 2024</p>
             
@@ -59,13 +71,15 @@
 
             <h2>6. Alterações na Política de Privacidade</h2>
             <p>Podemos atualizar nossa política de privacidade de tempos em tempos. Recomendamos que você revise esta página periodicamente para quaisquer alterações.</p>
+            
 
             <div class="mt-12 not-prose">
-                <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors">
+                <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 dark:bg-amber-500 dark:hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors">
                     Voltar para a Página Inicial
                 </a>
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
