@@ -218,37 +218,33 @@
                 </div>
 
                 <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <!-- Informações de Contato -->
-                    <div class="space-y-8">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-                                <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-6 w-6">
+                    <!-- Formulário de Contato -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Envie uma Mensagem</h3>
+                        <p class="text-gray-600 mb-8">Prefere escrever? Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível. Para urgências, utilize nosso <a href="https://wa.me/5519996464196?text=Olá!%20Visitei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20conversar%20com%20um%20especialista%20sobre%20as%20opções%20de%20tratamento.%20Preciso%20de%20ajuda." target="_blank" rel="noopener noreferrer" class="font-semibold text-green-600 hover:underline">WhatsApp 24h</a>.</p>
+                        <form action="#" method="POST" class="space-y-6">
+                            <div>
+                                <label for="name" class="sr-only">Nome</label>
+                                <input type="text" name="name" id="name" autocomplete="name" required class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Seu nome completo">
                             </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-bold text-gray-800">WhatsApp 24h</h3>
-                                <p class="mt-1 text-gray-600">Atendimento imediato e sigiloso.</p>
-                                <a href="https://wa.me/5519996464196?text=Olá!%20Visitei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20conversar%20com%20um%20especialista%20sobre%20as%20opções%20de%20tratamento.%20Preciso%20de%20ajuda." target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-green-600 hover:text-green-700 transition-colors">(19) 99646-4196</a>
+                            <div>
+                                <label for="email" class="sr-only">E-mail</label>
+                                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Seu melhor e-mail">
                             </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full bg-amber-100 text-amber-600">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            <div>
+                                <label for="phone" class="sr-only">Telefone</label>
+                                <input type="tel" name="phone" id="phone" autocomplete="tel" class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Seu telefone (Opcional)">
                             </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-bold text-gray-800">E-mail</h3>
-                                <p class="mt-1 text-gray-600">Fale com nosso consultor, Tiago Martins.</p>
-                                <a href="mailto:bittiago478@gmail.com" class="text-lg font-semibold text-amber-600 hover:text-amber-700 transition-colors">bittiago478@gmail.com</a>
+                            <div>
+                                <label for="message" class="sr-only">Mensagem</label>
+                                <textarea id="message" name="message" rows="4" required class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Como podemos ajudar?"></textarea>
                             </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full bg-amber-100 text-amber-600">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            <div>
+                                <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors">
+                                    Enviar Mensagem
+                                </button>
                             </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-bold text-gray-800">Área de Atendimento</h3>
-                                <p class="mt-1 text-gray-600">Nossa base está em Ribeirão Pires e Região, com atendimento especializado.</p>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                     <!-- Mapa -->
                     <div class="map-container aspect-w-16 aspect-h-10 rounded-xl overflow-hidden shadow-lg">
