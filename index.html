@@ -14,11 +14,11 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Estilos Personalizados -->    
+    <!-- Estilos Personalizados -->
     <link rel="stylesheet" href="style.css">
     
 </head>
-<html lang="pt-BR" class="scroll-smooth">
+<body class="bg-amber-50 antialiased" lang="pt-BR">
 
     <!-- CABEÇALHO E NAVEGAÇÃO -->
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
@@ -41,7 +41,7 @@
                     <span class="text-2xl font-bold text-gray-800">Aster</span>
                 </a>
 
-                <!-- Navegação Desktop -->
+                <!-- Navegação Desktop (oculta em telas pequenas) -->
                 <nav class="hidden md:flex items-center space-x-8" id="nav-desktop">
                     <a href="#inicio" class="text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium">Início</a>
                     <a href="#tratamentos" class="text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium">Tratamentos</a>
@@ -50,8 +50,8 @@
                     <a href="#faq" class="text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium">Dúvidas</a>
                     <a href="#contato" class="text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium">Contato</a>
                 </nav>
-                <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20tratamento." target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-500 hover:bg-green-600 transition-all duration-300 transform hover:scale-105">
-                    <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.425 5.575a12.001 12.001 0 00-16.85 16.85 12.001 12.001 0 0016.85-16.85zm-3.021 12.284c-.244.132-.56.21-.872.21a.96.96 0 01-.85-.485c-1.06-1.85-2.352-3.356-3.83-4.623a.84.84 0 01-.21-.623c0-.25.09-.485.27-.665l.29-.29c.2-.2.46-.29.72-.29s.52.1.72.29l.29.29c.28.28.28.73 0 1.01l-1.25 1.25c-.28.28-.28.73 0 1.01l1.25 1.25c.28.28.28.73 0 1.01l-1.25 1.25c-.28.28-.28.73 0 1.01l1.25 1.25c.28.28.73.28 1.01 0l1.25-1.25c.28-.28.73-.28 1.01 0l1.25 1.25c.28.28.28.73 0 1.01l-1.25 1.25a.96.96 0 01-.85.485z" clip-rule="evenodd" /></svg>
+                <a href="https://wa.me/5519996464196?text=Olá!%20Encontrei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20tratamentos.%20Poderiam%20me%20ajudar?" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-500 hover:bg-green-600 transition-all duration-300 transform hover:scale-105">
+                    <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-5 w-5 mr-2">
                     Fale Conosco
                 </a>
 
@@ -66,7 +66,7 @@
         </div>
 
         <!-- Menu Mobile -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute top-20 left-0 w-full">
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute top-20 left-0 w-full z-40">
             <nav class="flex flex-col items-center space-y-4 py-6">
                 <a href="#inicio" class="text-gray-600 hover:text-amber-600 transition-colors duration-300 text-lg font-medium">Início</a>
                 <a href="#tratamentos" class="text-gray-600 hover:text-amber-600 transition-colors duration-300 text-lg font-medium">Tratamentos</a>
@@ -74,8 +74,8 @@
                 <a href="#estrutura" class="text-gray-600 hover:text-amber-600 transition-colors duration-300 text-lg font-medium">Estrutura</a>
                 <a href="#faq" class="text-gray-600 hover:text-amber-600 transition-colors duration-300 text-lg font-medium">Dúvidas</a>
                 <a href="#contato" class="text-gray-600 hover:text-amber-600 transition-colors duration-300 text-lg font-medium">Contato</a>
-                <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20tratamento." target="_blank" rel="noopener noreferrer" class="mt-4 flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-500 hover:bg-green-600 transition-all duration-300 transform hover:scale-105">
-                    <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.425 5.575a12.001 12.001 0 00-16.85 16.85 12.001 12.001 0 0016.85-16.85zm-3.021 12.284c-.244.132-.56.21-.872.21a.96.96 0 01-.85-.485c-1.06-1.85-2.352-3.356-3.83-4.623a.84.84 0 01-.21-.623c0-.25.09-.485.27-.665l.29-.29c.2-.2.46-.29.72-.29s.52.1.72.29l.29.29c.28.28.28.73 0 1.01l-1.25 1.25c-.28.28-.28.73 0 1.01l1.25 1.25c.28.28.28.73 0 1.01l-1.25 1.25c-.28.28-.28.73 0 1.01l1.25 1.25c.28.28.73.28 1.01 0l1.25-1.25c.28-.28.73-.28 1.01 0l1.25 1.25c.28.28.28.73 0 1.01l-1.25 1.25a.96.96 0 01-.85.485z" clip-rule="evenodd" /></svg>
+                <a href="https://wa.me/5519996464196?text=Olá!%20Encontrei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20tratamentos.%20Poderiam%20me%20ajudar?" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-500 hover:bg-green-600 transition-all duration-300 transform hover:scale-105">
+                     <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-5 w-5 mr-2">
                     Fale Conosco
                 </a>
             </nav>
@@ -97,8 +97,8 @@
                     No Centro Terapêutico Aster, oferecemos um caminho de esperança e cuidado humanizado para a superação da dependência química. Acolhimento, respeito e transformação.
                 </p>
                 <div class="mt-10">
-                    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20tratamento." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-full text-white bg-green-500 hover:bg-green-600 shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-                        <svg class="h-6 w-6 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.425 5.575a12.001 12.001 0 00-16.85 16.85 12.001 12.001 0 0016.85-16.85zm-3.021 12.284c-.244.132-.56.21-.872.21a.96.96 0 01-.85-.485c-1.06-1.85-2.352-3.356-3.83-4.623a.84.84 0 01-.21-.623c0-.25.09-.485.27-.665l.29-.29c.2-.2.46-.29.72-.29s.52.1.72.29l.29.29c.28.28.28.73 0 1.01l-1.25 1.25c-.28.28-.28.73 0 1.01l1.25 1.25c.28.28.28.73 0 1.01l-1.25 1.25c-.28.28-.28.73 0 1.01l1.25 1.25c.28.28.73.28 1.01 0l1.25-1.25c.28-.28.73-.28 1.01 0l1.25 1.25c.28.28.28.73 0 1.01l-1.25 1.25a.96.96 0 01-.85.485z" clip-rule="evenodd" /></svg>
+                    <a href="https://wa.me/5519996464196?text=Olá!%20Encontrei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20tratamentos.%20Poderiam%20me%20ajudar?" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-full text-white bg-green-500 hover:bg-green-600 shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                        <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-6 w-6 mr-3">
                         Converse com um especialista 24h
                     </a>
                     <p class="mt-4 text-sm text-gray-500">Atendimento imediato e sigiloso.</p>
@@ -106,21 +106,125 @@
             </div>
         </section>
 
-        <!-- OUTRAS SEÇÕES AQUI... -->
+        <!-- SEÇÃO SOBRE NÓS -->
+        <section id="sobre" class="bg-white py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-amber-600 tracking-wider uppercase">Nossa Filosofia</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-800 tracking-tight">
+                        Cuidado que Transforma Vidas
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+                        Acreditamos que cada jornada de recuperação é única. Por isso, nossa abordagem é centrada no indivíduo, combinando profissionalismo, empatia e um ambiente seguro para promover a verdadeira transformação.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <!-- Missão -->
+                    <div class="flex flex-col items-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-amber-100 text-amber-600">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-gray-800">Nossa Missão</h3>
+                        <p class="mt-2 text-gray-600">Oferecer um tratamento humanizado e eficaz para a dependência química, promovendo a reintegração social e a reconstrução de vidas através de um ambiente de acolhimento, respeito e profissionalismo.</p>
+                    </div>
+
+                    <!-- Visão -->
+                    <div class="flex flex-col items-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-amber-100 text-amber-600">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-gray-800">Nossa Visão</h3>
+                        <p class="mt-2 text-gray-600">Ser um centro terapêutico de referência, reconhecido pela excelência em seus métodos, pela inovação contínua e pelo impacto positivo e duradouro na vida de nossos pacientes e suas famílias.</p>
+                    </div>
+
+                    <!-- Valores -->
+                    <div class="flex flex-col items-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-amber-100 text-amber-600">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-1.45-1.316C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.184L12 21z" /></svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-gray-800">Nossos Valores</h3>
+                        <p class="mt-2 text-gray-600">Baseamos nosso trabalho no respeito à dignidade, empatia, ética profissional, confidencialidade, esperança na recuperação e comprometimento total com o bem-estar de cada paciente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
     <!-- RODAPÉ -->
     <footer class="bg-gray-800 text-white">
         <div class="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="md:flex md:items-center md:justify-between">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- Coluna 1: Logo e Nome -->
+                <div class="flex flex-col items-center md:items-start">
+                    <a href="#inicio" class="flex items-center space-x-2">
+                        <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M100 195C152.467 195 195 152.467 195 100C195 47.5329 152.467 5 100 5C47.5329 5 5 47.5329 5 100C5 152.467 47.5329 195 100 195Z" fill="url(#paint0_linear_1_2)"/>
+                            <path d="M123.571 106.666L102.321 85.416C101.446 84.541 100.221 84.041 98.9464 84.041C97.6714 84.041 96.4464 84.541 95.5714 85.416L65.5714 115.416C64.6964 116.291 64.6964 117.707 65.5714 118.582C66.4464 119.457 67.8625 119.457 68.7375 118.582L98.9464 88.332L120.446 109.832C123.238 107.916 125.738 105.582 127.863 102.916C126.738 102.041 125.15 102.041 124.15 102.916L123.571 103.5V106.666Z" fill="#FFFBEB"/>
+                            <path d="M136.5 72C136.5 76.125 133.125 79.5 129 79.5C124.875 79.5 121.5 76.125 121.5 72C121.5 67.875 124.875 64.5 129 64.5C133.125 64.5 136.5 67.875 136.5 72Z" fill="white"/>
+                            <path d="M129 82.5C121.913 82.5 116.25 88.1625 116.25 95.25C116.25 97.5375 116.813 99.675 117.75 101.55L98.925 82.725L72.225 109.425L76.425 113.625L98.925 91.125L122.25 114.45C124.238 113.887 126.075 113.025 127.725 111.975L108.9 93.15L129 73.05L138.375 82.425C136.125 82.5 132.675 82.5 129 82.5Z" fill="#FFFBEB"/>
+                            <defs>
+                                <linearGradient id="paint0_linear_1_2" x1="100" y1="5" x2="100" y2="195" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FDE68A"/>
+                                <stop offset="1" stop-color="#F59E0B"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="text-2xl font-bold">Aster</span>
+                    </a>
+                    <p class="mt-4 text-gray-400 text-sm">Oferecemos um caminho de esperança e cuidado humanizado para a superação da dependência química.</p>
+                </div>
+
+                <!-- Coluna 2: Links de Navegação -->
+                <div class="mt-8 md:mt-0">
+                    <h3 class="text-lg font-semibold text-white mb-4">Navegação</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Início</a></li>
+                        <li><a href="#tratamentos" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Tratamentos</a></li>
+                        <li><a href="#sobre" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Sobre Nós</a></li>
+                        <li><a href="#estrutura" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Estrutura</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Dúvidas Frequentes</a></li>
+                        <li><a href="#contato" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Contato e Redes Sociais -->
+                <div class="mt-8 md:mt-0">
+                    <h3 class="text-lg font-semibold text-white mb-4">Fale Conosco</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center justify-center md:justify-start">                            
+                            <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-5 w-5 mr-2 filter grayscale brightness-150">
+                            <a href="https://wa.me/5519996464196?text=Olá!%20Encontrei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20tratamentos.%20Poderiam%20me%20ajudar?" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-400 transition-colors duration-300">(19) 99646-4196</a>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start">
+                            <svg class="h-5 w-5 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <a href="mailto:bittiago478@gmail.com" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">bittiago478@gmail.com</a>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start">
+                            <svg class="h-5 w-5 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <span>Ribeirão Pires - SP e raio de 50km</span>
+                        </li>
+                    </ul>
+                    <div class="flex justify-center md:justify-start mt-6 space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Facebook">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22C17.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Instagram">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 0C8.74 0 8.333.014 7.053.072 5.775.132 4.905.333 4.14.636c-.789.306-1.459.717-2.126 1.384S.935 3.35.636 4.14c-.309.765-.51 1.635-.57 2.913C.014 8.333 0 8.74 0 12s.014 3.667.072 4.947c.06 1.277.261 2.148.569 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.765.307 1.635.51 2.913.57C8.333 23.986 8.74 24 12 24s3.667-.014 4.947-.072c1.277-.06 2.148-.261 2.913-.569.788-.306 1.459-.717 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.307-.765.51-1.635.57-2.913.058-1.28.072-1.687.072-4.947s-.014-3.667-.072-4.947c-.06-1.277-.261-2.148-.569-2.913-.306-.789-.717-1.459-1.384-2.126C21.35 1.667 20.682 1.25 19.894.943c-.765-.307-1.635-.51-2.913-.57C15.667.014 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.899.42.42.68.81.899 1.382.164.422.359 1.057.415 2.227.056 1.265.07 1.647.07 4.85s-.014 3.585-.07 4.85c-.056 1.17-.25 1.805-.415 2.227-.217.562-.477.96-.899 1.382-.42.42-.81.68-1.382.899-.422.164-1.057.359-2.227.415-1.265.056-1.647.07-4.85.07s-3.585-.014-4.85-.07c-1.17-.056-1.805-.25-2.227-.415-.562-.217-.96-.477-1.382-.899-.42-.42-.68-.81-.899-1.382-.164-.422-.359-1.057-.415-2.227-.056-1.265-.07-1.647-.07-4.85s.014-3.585.07-4.85c.056-1.17.25-1.805.415-2.227.217-.562.477-.96.899-1.382.42-.42.81-.68 1.382-.899.422-.164 1.057-.359 2.227-.415C8.415 2.176 8.797 2.16 12 2.16zm0 3.635c-3.444 0-6.24 2.796-6.24 6.24s2.796 6.24 6.24 6.24 6.24-2.796 6.24-6.24-2.796-6.24-6.24-6.24zm0 10.24c-2.208 0-3.99-1.782-3.99-3.99s1.782-3.99 3.99-3.99 3.99 1.782 3.99 3.99-1.782 3.99-3.99 3.99zm6.406-11.845c-.796 0-1.44-.645-1.44-1.44s.645-1.44 1.44-1.44 1.44.645 1.44 1.44-.645 1.44-1.44 1.44z" clip-rule="evenodd" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 border-t border-gray-700 pt-8 text-center">
                 <div class="flex justify-center md:order-1">
                     <a href="#inicio" class="flex items-center space-x-2">
                         <!-- ... (código do logo SVG) ... -->
                         <span class="text-2xl font-bold">Aster</span>
                     </a>
                 </div>
-                <div class="mt-8 md:mt-0 md:order-2 text-center text-gray-400">
+                <div class="mt-8 md:mt-0 text-center text-gray-400">
                     <p>&copy; 2025 Aster Centro Terapêutico. Todos os direitos reservados.</p>
                     <p class="text-sm">Recomeçar é possível. Nós podemos ajudar.</p>
                 </div>
@@ -129,11 +233,11 @@
     </footer>
 
     <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
-    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20tratamento." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110 z-50 flex items-center justify-center" aria-label="Fale Conosco pelo WhatsApp">
-        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.425 5.575a12.001 12.001 0 00-16.85 16.85 12.001 12.001 0 0016.85-16.85zm-3.021 12.284c-.244.132-.56.21-.872.21a.96.96 0 01-.85-.485c-1.06-1.85-2.352-3.356-3.83-4.623a.84.84 0 01-.21-.623c0-.25.09-.485.27-.665l.29-.29c.2-.2.46-.29.72-.29s.52.1.72.29l.29.29c.28.28.28.73 0 1.01l-1.25 1.25c-.28.28-.28.73 0 1.01l1.25 1.25c.28.28.28.73 0 1.01l-1.25 1.25c-.28.28-.28.73 0 1.01l1.25 1.25c.28.28.73.28 1.01 0l1.25-1.25c.28-.28.73-.28 1.01 0l1.25 1.25c.28.28.28.73 0 1.01l-1.25 1.25a.96.96 0 01-.85.485z" clip-rule="evenodd" /></svg>
+    <a href="https://wa.me/5519996464196?text=Olá!%20Encontrei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20tratamentos.%20Poderiam%20me%20ajudar?" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110 z-50 flex items-center justify-center" aria-label="Fale Conosco pelo WhatsApp">
+        <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-8 w-8">
     </a>
 
     <!-- JAVASCRIPT -->
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
