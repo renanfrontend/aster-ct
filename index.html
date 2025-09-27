@@ -227,45 +227,44 @@
                     <div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-2">Envie uma Mensagem</h3>
                         <p class="text-gray-600 mb-8">Prefere escrever? Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível. Para urgências, utilize nosso <a href="https://wa.me/5519996464196?text=Olá!%20Visitei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20conversar%20com%20um%20especialista%20sobre%20as%20opções%20de%20tratamento.%20Preciso%20de%20ajuda." target="_blank" rel="noopener noreferrer" class="font-semibold text-green-600 hover:underline">WhatsApp 24h</a>.</p>
-                        
-                    <!--ALTERAR O EMAIL ABAIXO PARA O SEU EMAIL DESEJADO. esse email é apenas para teste-->
-                        <form action="https://formsubmit.co/renan.gabba@gmail.com" method="POST" class="space-y-6"></form>
-                        <!-- <form action="https://formsubmit.co/bittiago478@gmail.com" method="POST" class="space-y-6"> -->
+                        <form action="https://formsubmit.co/bittiago478@gmail.com" method="POST" class="space-y-6">
                             <!-- Configurações do FormSubmit -->
                             <input type="hidden" name="_subject" value="Nova Mensagem do Site - Centro Terapêutico Aster">
                             <input type="hidden" name="_captcha" value="false"> <!-- Desativa o reCAPTCHA para evitar erros em ambiente local -->
                             <input type="hidden" name="_next" value="https://seusite.com/obrigado.html"> <!-- Página de agradecimento (opcional, mas recomendado) -->
 
                             <div>
-                                <label for="name" class="sr-only">Nome</label>
-                                <input type="text" name="name" id="name" autocomplete="name" required class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Seu nome completo">
-                            </div>
-                            <div>
-                                <label for="email" class="sr-only">E-mail</label>
-                                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Seu melhor e-mail">
-                            </div>
-                            <div>
-                                <label for="subject" class="sr-only">Assunto</label>
-                                <select id="subject" name="subject" required class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 text-gray-500">
-                                    <option value="" disabled selected>Selecione o assunto</option>
-                                    <option value="Informações sobre internação">Informações sobre internação</option>
-                                    <option value="Dúvidas sobre o tratamento">Dúvidas sobre o tratamento</option>
-                                    <option value="Agendar uma visita">Agendar uma visita</option>
-                                    <option value="Outros assuntos">Outros assuntos</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="phone" class="sr-only">Telefone</label>
-                                <input type="tel" name="phone" id="phone" autocomplete="tel" class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Seu telefone (Opcional)">
-                            </div>
-                            <div>
-                                <label for="message" class="sr-only">Mensagem</label>
-                                <textarea id="message" name="message" rows="4" required class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Como podemos ajudar?"></textarea>
-                            </div>
-                            <div>
-                                <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors">
-                                    Enviar Mensagem
-                                </button>
+                                <div>
+                                    <label for="name" class="sr-only">Nome</label>
+                                    <input type="text" name="name" id="name" autocomplete="name" required class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Seu nome completo">
+                                </div>
+                                <div>
+                                    <label for="email" class="sr-only">E-mail</label>
+                                    <input id="email" name="email" type="email" autocomplete="email" required class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Seu melhor e-mail">
+                                </div>
+                                <div>
+                                    <label for="subject" class="sr-only">Assunto</label>
+                                    <select id="subject" name="subject" required class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 text-gray-500">
+                                        <option value="" disabled selected>Selecione o assunto</option>
+                                        <option value="Informações sobre internação">Informações sobre internação</option>
+                                        <option value="Dúvidas sobre o tratamento">Dúvidas sobre o tratamento</option>
+                                        <option value="Agendar uma visita">Agendar uma visita</option>
+                                        <option value="Outros assuntos">Outros assuntos</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="phone" class="sr-only">Telefone</label>
+                                    <input type="tel" name="phone" id="phone" autocomplete="tel" class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Seu telefone (Opcional)">
+                                </div>
+                                <div>
+                                    <label for="message" class="sr-only">Mensagem</label>
+                                    <textarea id="message" name="message" rows="4" required class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-amber-500 focus:border-amber-500 placeholder-gray-500" placeholder="Como podemos ajudar?"></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors">
+                                        Enviar Mensagem
+                                    </button>
+                                </div>
                             </div>
                         </form>
                     </div>
