@@ -23,6 +23,20 @@ body {
     width: 100%;
 }
 
+/* Estilos para animação de Fade-in on Scroll */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px); /* Começa ligeiramente abaixo da posição final */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transição suave */
+    will-change: opacity, transform; /* Otimização para animações */
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 /* Estilos para o FAQ Accordion */
 .accordion-content {
     max-height: 0;

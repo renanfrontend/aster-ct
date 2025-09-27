@@ -84,4 +84,24 @@
                 emblaApi.on('select', updateNavButtons);
                 emblaApi.on('init', updateNavButtons);
             }
+
+            // Fade-in animation on scroll
+            const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+            const observerOptions = {
+                root: null, // Observa a viewport
+                rootMargin: '0px',
+                threshold: 0.2 // Dispara quando 20% da seção está visível
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Para de observar após a animação
+                    }
+                });
+            }, observerOptions);
+
+            fadeInSections.forEach(section => observer.observe(section));
         });
