@@ -48,4 +48,40 @@
                     }
                 });
             });
+
+            // Embla Carousel
+            const emblaNode = document.getElementById('carousel-viewport');
+            if (emblaNode) {
+                const emblaApi = EmblaCarousel(emblaNode, { loop: true, align: 'start' }, [
+                    EmblaCarouselAutoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true })
+                ]);
+
+                const prevBtn = document.getElementById('carousel-prev');
+                const nextBtn = document.getElementById('carousel-next');
+
+                const onNavButtonClick = () => {
+                    const autoplay = emblaApi.plugins().autoplay;
+                    if (!autoplay) return;
+                    autoplay.reset(); // Reinicia o autoplay após interação manual
+                };
+
+                const updateNavButtons = () => {
+                    if (!emblaApi.canScrollPrev()) {
+                        prevBtn.disabled = true;
+                    } else {
+                        prevBtn.disabled = false;
+                    }
+                    if (!emblaApi.canScrollNext()) {
+                        nextBtn.disabled = true;
+                    } else {
+                        nextBtn.disabled = false;
+                    }
+                };
+
+                prevBtn.addEventListener('click', () => { emblaApi.scrollPrev(); onNavButtonClick(); }, false);
+                nextBtn.addEventListener('click', () => { emblaApi.scrollNext(); onNavButtonClick(); }, false);
+
+                emblaApi.on('select', updateNavButtons);
+                emblaApi.on('init', updateNavButtons);
+            }
         });
