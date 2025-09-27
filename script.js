@@ -1,5 +1,64 @@
+        // Preloader
+        window.onload = () => {
+            const preloader = document.getElementById('preloader');
+            const siteContent = document.getElementById('site-content');
+            
+            if (preloader) {
+                preloader.classList.add('hidden');
+                
+                // Garante que o preloader desapareça antes de mostrar o conteúdo
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    if(siteContent) {
+                        siteContent.classList.remove('opacity-0');
+                    }
+                }, 500); // Tempo igual à transição do CSS
+            }
+        };
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+            const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+            const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    themeToggleLightIcon.classList.remove('hidden');
+                    themeToggleDarkIcon.classList.add('hidden');
+                    themeToggleLightIconMobile.classList.remove('hidden');
+                    themeToggleDarkIconMobile.classList.add('hidden');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    themeToggleDarkIcon.classList.remove('hidden');
+                    themeToggleLightIcon.classList.add('hidden');
+                    themeToggleDarkIconMobile.classList.remove('hidden');
+                    themeToggleLightIconMobile.classList.add('hidden');
+                }
+            };
+
+            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                applyTheme('dark');
+            } else {
+                applyTheme('light');
+            }
+
+            const toggleTheme = () => {
+                const currentTheme = localStorage.getItem('color-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+                
+                localStorage.setItem('color-theme', newTheme);
+                applyTheme(newTheme);
+            };
+
+            themeToggleBtn.addEventListener('click', toggleTheme);
+            themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const menuOpenIcon = document.getElementById('menu-open-icon');
@@ -104,4 +163,42 @@
             }, observerOptions);
 
             fadeInSections.forEach(section => observer.observe(section));
+
+            // Back to Top Button
+            const backToTopBtn = document.getElementById('back-to-top-btn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) { // Mostra o botão após rolar 300px
+                    backToTopBtn.classList.add('is-visible');
+                } else {
+                    backToTopBtn.classList.remove('is-visible');
+                }
+            });
+
+            // Parallax Effect for Hero Image
+            const heroImage = document.getElementById('hero-image');
+            if (heroImage) {
+                window.addEventListener('scroll', () => {
+                    const scrollPosition = window.scrollY;
+                    heroImage.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+                });
+            }
+
+            // Cookie Consent Banner
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+            const cookieConsent = localStorage.getItem('cookie_consent');
+            
+            if (cookieBanner && acceptCookiesBtn) {
+                if (!cookieConsent) {
+                    setTimeout(() => {
+                        cookieBanner.classList.add('is-visible');
+                    }, 1000); // Mostra o banner após 1 segundo
+                }
+    
+                acceptCookiesBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'true');
+                    cookieBanner.classList.remove('is-visible');
+                });
+            }
         });

@@ -1,5 +1,6 @@
 /* Usando a fonte Inter como padrão */
 body {
+    @apply bg-amber-50 dark:bg-gray-900;
     font-family: 'Inter', sans-serif;
 }
 /* Estilo para o mapa */
@@ -42,4 +43,82 @@ body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
+}
+
+/* Estilos para o Botão Voltar ao Topo */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 1.5rem; /* bottom-6 */
+    right: 5rem; /* right-20, para não sobrepor o WhatsApp */
+    background-color: #F59E0B; /* bg-amber-600 */
+    color: white;
+    padding: 0.75rem; /* p-3 */
+    border-radius: 9999px; /* rounded-full */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    transform: translateY(10px);
+    z-index: 50;
+}
+
+.back-to-top-btn.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+    background-color: #D97706; /* bg-amber-700 */
+}
+
+/* Estilos para o Banner de Cookies */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #1f2937; /* bg-gray-800, dark:bg-black */
+    color: white;
+    padding: 1rem; /* p-4 */
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg no topo */
+    z-index: 100;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+}
+.cookie-banner.is-visible {
+    transform: translateY(0);
+}
+
+/* Estilos para o Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFBEB; /* bg-amber-50, dark:bg-gray-900 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #FDE68A; /* border-amber-200 */
+    border-top-color: #F59E0B; /* border-amber-600, dark:border-amber-400 */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
