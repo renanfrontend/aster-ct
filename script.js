@@ -103,6 +103,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevBtn = document.getElementById('carousel-prev');
         const nextBtn = document.getElementById('carousel-next');
 
+        // Lógica para os Dots
+        const dotsNode = document.getElementById('carousel-dots');
+        const slides = emblaApi.slideNodes();
+        let dots = [];
+
+        if (dotsNode) {
+            slides.forEach((_, index) => {
+                const button = document.createElement('button');
+                button.classList.add('embla__dot');
+                button.addEventListener('click', () => emblaApi.scrollTo(index));
+                dotsNode.appendChild(button);
+            });
+            dots = Array.from(dotsNode.children);
+        }
+
+        const updateDots = () => {
+            if (dots.length === 0) return;
+            const selectedIndex = emblaApi.selectedScrollSnap();
+            dots.forEach((dot, index) => {
+                if (index === selectedIndex) {
+                    dot.classList.add('embla__dot--is-selected');
+                } else {
+                    dot.classList.remove('embla__dot--is-selected');
+                }
+            });
+        };
+
         const onNavButtonClick = () => {
             const autoplay = emblaApi.plugins().autoplay;
             if (!autoplay) return;
@@ -125,8 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
         prevBtn.addEventListener('click', () => { emblaApi.scrollPrev(); onNavButtonClick(); }, false);
         nextBtn.addEventListener('click', () => { emblaApi.scrollNext(); onNavButtonClick(); }, false);
 
-        emblaApi.on('select', updateNavButtons);
-        emblaApi.on('init', updateNavButtons);
+        emblaApi.on('select', () => { updateNavButtons(); updateDots(); });
+        emblaApi.on('init', () => { updateNavButtons(); updateDots(); });
     }
 
     // Fade-in animation on scroll
