@@ -33,6 +33,7 @@ O site conta com diversas seções e funcionalidades modernas para garantir uma 
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
   <img src="https://img.shields.io/badge/Embla_Carousel-Framework_Agnostic-orange?style=for-the-badge" alt="Embla Carousel"/>
   <img src="https://img.shields.io/badge/FormSubmit-Public_Endpoint-blue?style=for-the-badge" alt="FormSubmit"/>
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"/>
 </p>
 
 ## 💻 Como Executar

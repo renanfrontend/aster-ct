@@ -1,0 +1,9 @@
+{
+  "name": "aster-ct",
+  "version": "1.0.0",
+  "description": "Site institucional para o Aster Centro Terapêutico.",
+  "scripts": {
+    "sitemap": "node generate-sitemap.js"
+  },
+  "author": "Renan Augusto"
+}
