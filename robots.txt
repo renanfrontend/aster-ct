@@ -1,0 +1,8 @@
+# Instruções para todos os robôs de busca
+User-agent: *
+
+# Não rastrear a página de agradecimento do formulário
+Disallow: /obrigado.html
+
+# Localização do Sitemap
+Sitemap: https://www.SEU-DOMINIO.com.br/sitemap.xml

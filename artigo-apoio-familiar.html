@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Importância do Apoio Familiar na Recuperação - Aster Centro Terapêutico</title>
     <meta name="description" content="O suporte da família é um dos pilares mais importantes no tratamento da dependência química. Entenda como o envolvimento familiar pode fazer a diferença.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.SEU-DOMINIO.com.br/artigo-apoio-familiar.html">
+    <meta property="og:title" content="A Importância do Apoio Familiar na Recuperação - Aster Centro Terapêutico">
+    <meta property="og:description" content="O suporte da família é um dos pilares mais importantes no tratamento da dependência química. Entenda como o envolvimento familiar pode fazer a diferença.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=1200&auto=format&fit=crop">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.SEU-DOMINIO.com.br/artigo-apoio-familiar.html">
+    <meta property="twitter:title" content="A Importância do Apoio Familiar na Recuperação - Aster Centro Terapêutico">
+    <meta property="twitter:description" content="O suporte da família é um dos pilares mais importantes no tratamento da dependência química. Entenda como o envolvimento familiar pode fazer a diferença.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=1200&auto=format&fit=crop">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -23,6 +37,14 @@
             darkMode: 'class', // Habilita o modo escuro baseado em classe
         }
     </script>
+    <script>
+        // Lógica para evitar FOUC (Flash of Unstyled Content) no tema escuro
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 
     <!-- Estilos Personalizados -->
     <link rel="stylesheet" href="style.css">
@@ -30,20 +52,36 @@
 <body class="bg-amber-50 dark:bg-gray-900 antialiased">
 
     <div id="site-content">
-        <!-- CABEÇALHO SIMPLIFICADO -->
+        <!-- CABEÇALHO E NAVEGAÇÃO -->
         <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
+                    <!-- Logo -->
                     <a href="index.html" class="flex items-center space-x-2">
                         <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 195C152.467 195 195 152.467 195 100C195 47.5329 152.467 5 100 5C47.5329 5 5 47.5329 5 100C5 152.467 47.5329 195 100 195Z" fill="url(#paint0_linear_1_2)"/><path d="M123.571 106.666L102.321 85.416C101.446 84.541 100.221 84.041 98.9464 84.041C97.6714 84.041 96.4464 84.541 95.5714 85.416L65.5714 115.416C64.6964 116.291 64.6964 117.707 65.5714 118.582C66.4464 119.457 67.8625 119.457 68.7375 118.582L98.9464 88.332L120.446 109.832C123.238 107.916 125.738 105.582 127.863 102.916C126.738 102.041 125.15 102.041 124.15 102.916L123.571 103.5V106.666Z" fill="#FFFBEB"/><path d="M136.5 72C136.5 76.125 133.125 79.5 129 79.5C124.875 79.5 121.5 76.125 121.5 72C121.5 67.875 124.875 64.5 129 64.5C133.125 64.5 136.5 67.875 136.5 72Z" fill="white"/><path d="M129 82.5C121.913 82.5 116.25 88.1625 116.25 95.25C116.25 97.5375 116.813 99.675 117.75 101.55L98.925 82.725L72.225 109.425L76.425 113.625L98.925 91.125L122.25 114.45C124.238 113.887 126.075 113.025 127.725 111.975L108.9 93.15L129 73.05L138.375 82.425C136.125 82.5 132.675 82.5 129 82.5Z" fill="#FFFBEB"/><defs><linearGradient id="paint0_linear_1_2" x1="100" y1="5" x2="100" y2="195" gradientUnits="userSpaceOnUse"><stop stop-color="#FDE68A"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs></svg>
                         <span class="text-2xl font-bold text-gray-800 dark:text-gray-100">Aster</span>
                     </a>
-                    <a href="index.html#blog" class="font-semibold text-amber-600 dark:text-amber-400 hover:underline">Voltar ao Blog</a>
+    
+                    <!-- Navegação Desktop (oculta em telas pequenas) -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <nav class="flex items-center space-x-8" id="nav-desktop">
+                            <a href="index.html#inicio" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 font-medium">Início</a>
+                            <a href="index.html#sobre" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 font-medium">Sobre Nós</a>
+                            <a href="index.html#estrutura" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 font-medium">Estrutura</a>
+                            <a href="index.html#faq" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 font-medium">Dúvidas</a>
+                            <a href="index.html#contato" class="text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 font-medium">Contato</a>
+                        </nav>
+                        <!-- Botão de Tema -->
+                        <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
+                            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 7.072l.707-.707a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
 
-        <main>
+        <main class="pb-12">
             <div class="bg-white dark:bg-gray-800 py-16 sm:py-24">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                     <article class="max-w-3xl mx-auto">
@@ -99,6 +137,80 @@
             </div>
         </main>
     </div>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-gray-800 dark:bg-black text-white mt-auto">
+        <div class="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- Coluna 1: Logo e Nome -->
+                <div class="flex flex-col items-center md:items-start">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M100 195C152.467 195 195 152.467 195 100C195 47.5329 152.467 5 100 5C47.5329 5 5 47.5329 5 100C5 152.467 47.5329 195 100 195Z" fill="url(#paint0_linear_1_2)"/>
+                            <path d="M123.571 106.666L102.321 85.416C101.446 84.541 100.221 84.041 98.9464 84.041C97.6714 84.041 96.4464 84.541 95.5714 85.416L65.5714 115.416C64.6964 116.291 64.6964 117.707 65.5714 118.582C66.4464 119.457 67.8625 119.457 68.7375 118.582L98.9464 88.332L120.446 109.832C123.238 107.916 125.738 105.582 127.863 102.916C126.738 102.041 125.15 102.041 124.15 102.916L123.571 103.5V106.666Z" fill="#FFFBEB"/>
+                            <path d="M136.5 72C136.5 76.125 133.125 79.5 129 79.5C124.875 79.5 121.5 76.125 121.5 72C121.5 67.875 124.875 64.5 129 64.5C133.125 64.5 136.5 67.875 136.5 72Z" fill="white"/>
+                            <path d="M129 82.5C121.913 82.5 116.25 88.1625 116.25 95.25C116.25 97.5375 116.813 99.675 117.75 101.55L98.925 82.725L72.225 109.425L76.425 113.625L98.925 91.125L122.25 114.45C124.238 113.887 126.075 113.025 127.725 111.975L108.9 93.15L129 73.05L138.375 82.425C136.125 82.5 132.675 82.5 129 82.5Z" fill="#FFFBEB"/>
+                            <defs>
+                                <linearGradient id="paint0_linear_1_2" x1="100" y1="5" x2="100" y2="195" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FDE68A"/>
+                                <stop offset="1" stop-color="#F59E0B"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="text-2xl font-bold text-white">Aster</span>
+                    </a>
+                    <p class="mt-4 text-gray-400 text-sm">Oferecemos um caminho de esperança e cuidado humanizado para a superação da dependência química.</p>
+                </div>
+
+                <!-- Coluna 2: Links de Navegação -->
+                <div class="mt-8 md:mt-0">
+                    <h3 class="text-lg font-semibold text-white mb-4">Navegação</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#inicio" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Início</a></li>
+                        <li><a href="index.html#sobre" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Sobre Nós</a></li>
+                        <li><a href="index.html#estrutura" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Estrutura</a></li>
+                        <li><a href="index.html#faq" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Dúvidas Frequentes</a></li>
+                        <li><a href="index.html#contato" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Contato e Redes Sociais -->
+                <div class="mt-8 md:mt-0">
+                    <h3 class="text-lg font-semibold text-white mb-4">Fale Conosco</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center justify-center md:justify-start">                            
+                            <img src="icon-whatsapp.png" alt="WhatsApp Icon" class="h-5 w-5 mr-2 filter grayscale brightness-150">
+                            <a href="https://wa.me/5519996464196?text=Olá!%20Visitei%20o%20site%20do%20Centro%20Terapêutico%20Aster%20e%20gostaria%20de%20conversar%20com%20um%20especialista%20sobre%20as%20opções%20de%20tratamento.%20Preciso%20de%20ajuda." target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-400 transition-colors duration-300">(19) 99646-4196</a>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start">
+                            <svg class="h-5 w-5 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <a href="mailto:bittiago478@gmail.com" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">bittiago478@gmail.com (Tiago Martins)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 border-t border-gray-700 dark:border-gray-600 pt-8 text-center">
+                <div class="text-center text-gray-400">
+                    <p>&copy; 2025 Aster Centro Terapêutico. Todos os direitos reservados.</p>
+                    <a href="politica-de-privacidade.html" class="text-sm text-gray-500 hover:text-amber-400 transition-colors">Política de Privacidade</a>                    
+                    <p class="text-sm">Recomeçar é possível. Nós podemos ajudar.</p>
+                </div>
+            </div>
+            <!-- Créditos do Desenvolvedor -->
+            <div class="mt-8 pt-8 border-t border-gray-700 dark:border-gray-600 text-center text-sm text-gray-500">
+                <p>Desenvolvido com ❤️ por Renan Augusto</p>
+                <div class="flex justify-center items-center space-x-4 mt-2">
+                    <a href="https://www.instagram.com/renanfrontend/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram do Desenvolvedor">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.42.42.679.819.896 1.381.166.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.013 3.584-.07 4.85c-.053 1.17-.247 1.805-.413 2.227-.217.562-.476.96-.896 1.381-.42.42-.819.679-1.381.896-.422.166-1.057.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.013-4.85-.07c-1.17-.053-1.805-.247-2.227-.413-.562-.217-.96-.476-1.381-.896-.42-.42-.679-.819-.896-1.381-.166-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.013-3.584.07-4.85c.053-1.17.247-1.805.413-2.227.217-.562.476.96.896-1.381.42.42.819-.679-1.381.896.422-.166 1.057-.36 2.227-.413C8.416 2.175 8.796 2.163 12 2.163zm0 1.802C9.042 3.965 8.71 3.977 7.548 4.032c-1.14.054-1.68.23-2.023.362-.44.17-.748.396-1.05.7-.303.303-.53.61-.7.1.05-.131.443-.354.747-.362 1.14-.054 1.473-.066 4.43-.066s3.29.012 4.43.066c.303.132.578.355.747.747.17.303.396.61.7 1.05.131.344.308.883.362 2.023.054 1.168.066 1.499.066 4.43s-.012 3.262-.066 4.43c-.054 1.14-.23 1.68-.362 2.023-.17.44-.396.748-.7 1.05-.303.303-.61.53-1.05.7-.344.131-.883.308-2.023.362-1.168.054-1.499.066-4.43.066s-3.262-.012-4.43-.066c-1.14-.054-1.68-.23-2.023-.362-.44-.17-.748-.396-1.05-.7-.303-.303-.53-.61-.7-1.05-.131-.344-.308-.883-.362-2.023-.054-1.168-.066-1.499-.066-4.43s.012-3.262.066-4.43c.054-1.14.23-1.68.362-2.023.17-.44.396-.748.7-1.05.303-.303.61-.53 1.05-.7.344-.131.883-.308 2.023-.362C8.71 3.977 9.042 3.965 12 3.965zm0 3.63c-3.443 0-6.237 2.794-6.237 6.237s2.794 6.237 6.237 6.237 6.237-2.794 6.237-6.237-2.794-6.237-6.237-6.237zm0 10.272c-2.226 0-4.035-1.81-4.035-4.035s1.81-4.035 4.035-4.035 4.035 1.81 4.035 4.035-1.81 4.035-4.035 4.035zm6.406-11.845c-.796 0-1.44.645-1.44 1.44s.645 1.44 1.44 1.44 1.44-.645 1.44-1.44-.645-1.44-1.44-1.44z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/renan-augusto-santos" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn do Desenvolvedor">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

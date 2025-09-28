@@ -107,7 +107,7 @@ body {
 
 .preloader.hidden {
     opacity: 0;
-    visibility: hidden;
+    pointer-events: none;
 }
 
 .spinner {
@@ -121,4 +121,16 @@ body {
 
 @keyframes spin {
     to { transform: rotate(360deg); }
+}
+
+/*
+  Personalização da cor do texto dos artigos no modo escuro.
+  A classe .prose-invert define as cores para o modo escuro,
+  e aqui estamos sobrescrevendo a cor do corpo do texto e dos títulos.
+*/
+.dark .prose-invert {
+    --tw-prose-body: #F5F5F5; /* Cor do parágrafo (whitesmoke) */
+    --tw-prose-headings: #F5F5F5; /* Cor dos títulos (h1, h2, etc.) */
+    --tw-prose-lead: #F5F5F5;
+    --tw-prose-bold: #F5F5F5;
 }

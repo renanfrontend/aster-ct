@@ -16,54 +16,54 @@ window.addEventListener('load', () => {
 
 // Lógica para componentes interativos - Executa assim que o HTML da página está pronto.
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme Toggle
-    const themeToggleButtons = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+     // Theme Toggle
+     const themeToggleButtons = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
     
-    const updateThemeIcons = (isDark) => {
-        document.querySelectorAll('#theme-toggle-dark-icon, #theme-toggle-dark-icon-mobile').forEach(el => el.classList.toggle('hidden', !isDark));
-        document.querySelectorAll('#theme-toggle-light-icon, #theme-toggle-light-icon-mobile').forEach(el => el.classList.toggle('hidden', isDark));
-    };
-
-    // Sincroniza os ícones com o tema atual no carregamento da página
-    updateThemeIcons(document.documentElement.classList.contains('dark'));
-
-    themeToggleButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // alterna a classe no HTML
-            const isDark = document.documentElement.classList.toggle('dark');
-            
-            // salva a preferência
-            localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
-            
-            // atualiza os ícones
-            updateThemeIcons(isDark);
-        });
-    });
-
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuOpenIcon = document.getElementById('menu-open-icon');
-    const menuCloseIcon = document.getElementById('menu-close-icon');
-
-    if (menuBtn) {
-        // Toggle menu
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuOpenIcon.classList.toggle('hidden');
-            menuCloseIcon.classList.toggle('hidden');
-        });
-
-        // Fechar menu ao clicar em um link
-        const navLinks = mobileMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuOpenIcon.classList.remove('hidden');
-                menuCloseIcon.classList.add('hidden');
-            });
-        });
-    }
-    
+     const updateThemeIcons = (isDark) => {
+         document.querySelectorAll('#theme-toggle-dark-icon, #theme-toggle-dark-icon-mobile').forEach(el => el.classList.toggle('hidden', !isDark));
+         document.querySelectorAll('#theme-toggle-light-icon, #theme-toggle-light-icon-mobile').forEach(el => el.classList.toggle('hidden', isDark));
+     };
+ 
+     // Sincroniza os ícones com o tema atual no carregamento da página
+     updateThemeIcons(document.documentElement.classList.contains('dark'));
+ 
+     themeToggleButtons.forEach(btn => {
+         btn.addEventListener('click', () => {
+             // alterna a classe no HTML
+             const isDark = document.documentElement.classList.toggle('dark');
+             
+             // salva a preferência
+             localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+             
+             // atualiza os ícones
+             updateThemeIcons(isDark);
+         });
+     });
+ 
+     const menuBtn = document.getElementById('menu-btn');
+     const mobileMenu = document.getElementById('mobile-menu');
+     const menuOpenIcon = document.getElementById('menu-open-icon');
+     const menuCloseIcon = document.getElementById('menu-close-icon');
+ 
+     if (menuBtn) {
+         // Toggle menu
+         menuBtn.addEventListener('click', () => {
+             mobileMenu.classList.toggle('hidden');
+             menuOpenIcon.classList.toggle('hidden');
+             menuCloseIcon.classList.toggle('hidden');
+         });
+ 
+         // Fechar menu ao clicar em um link
+         const navLinks = mobileMenu.querySelectorAll('a');
+         navLinks.forEach(link => {
+             link.addEventListener('click', () => {
+                 mobileMenu.classList.add('hidden');
+                 menuOpenIcon.classList.remove('hidden');
+                 menuCloseIcon.classList.add('hidden');
+             });
+         });
+     }
+     
      // FAQ Accordion
     const accordionItems = document.querySelectorAll('.accordion-item');
     if (accordionItems.length > 0) {
