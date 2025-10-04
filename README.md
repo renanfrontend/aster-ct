@@ -13,6 +13,7 @@ O site conta com diversas seções e funcionalidades modernas para garantir uma 
     -   Efeito de paralaxe na imagem principal.
     -   Animação de contagem para estatísticas.
     -   Efeitos de *fade-in* nas seções durante a rolagem.
+    -   **Galeria de Imagens da Estrutura:** Carrossel com fotos reais do centro terapêutico.
 -   **Seção de Blog:**
     -   Listagem de artigos na página inicial.
     -   Páginas individuais para cada artigo.
